@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Simulador de Entregas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>🚚 Simulador de Entregas (FIFO)</h1>
+
+    <div class="container">
+        <button onclick="adicionarPacote()">Adicionar Pacote</button>
+        <button onclick="entregarPacote()">Entregar Pacote</button>
+    </div>
+
+    <h2>📦 Fila de Entregas</h2>
+    <ul id="fila"></ul>
+
+    <h2>✅ Histórico de Entregas</h2>
+    <ul id="historico"></ul>
+
+    <div id="animacao">🚚</div>
+
+    <script src="script.js"></script>
+</body>
+</html>
