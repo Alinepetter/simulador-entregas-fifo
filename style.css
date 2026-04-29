@@ -1,57 +1,111 @@
-body {
-    font-family: Arial;
-    text-align: center;
-    background-color: #f4f4f4;
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-h1 {
+/* BASE */
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #e8f5e9, #f4f4f4);
     color: #333;
 }
 
-.container {
-    margin: 20px;
+/* APP */
+.app {
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* HEADER */
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    color: #2e7d32;
+}
+
+header p {
+    font-size: 14px;
+    color: #666;
+}
+
+/* BOTÕES */
+.botoes {
+    text-align: center;
+    margin-bottom: 20px;
 }
 
 button {
-    padding: 10px;
+    padding: 12px 18px;
     margin: 5px;
     border: none;
-    background-color: #4CAF50;
+    border-radius: 8px;
+    background: #4CAF50;
     color: white;
     cursor: pointer;
+    font-size: 14px;
+    transition: 0.3s;
 }
 
 button:hover {
-    background-color: #45a049;
+    background: #388e3c;
+    transform: scale(1.05);
 }
 
+/* PAINEL */
+.painel {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.card {
+    background: white;
+    flex: 1;
+    min-width: 250px;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.card h2 {
+    margin-bottom: 10px;
+}
+
+/* LISTAS */
 ul {
     list-style: none;
-    padding: 0;
 }
 
 li {
-    background: white;
-    margin: 5px auto;
-    padding: 10px;
-    width: 300px;
-    border-radius: 5px;
+    background: #f9f9f9;
+    margin-bottom: 5px;
+    padding: 8px;
+    border-radius: 6px;
+    font-size: 14px;
 }
 
-#animacao {
-    font-size: 40px;
-    margin-top: 20px;
-    transition: transform 1s ease;
+/* STATUS */
+.status {
+    margin-top: 30px;
+    text-align: center;
 }
 
 #statusBox {
     background: white;
     width: 300px;
-    margin: 20px auto;
+    margin: 15px auto;
     padding: 15px;
-    border-radius: 10px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
+/* BARRA DE PROGRESSO */
 #barraContainer {
     width: 100%;
     height: 20px;
@@ -64,6 +118,12 @@ li {
 #barraProgresso {
     height: 100%;
     width: 0%;
-    background: #4CAF50;
+    background: linear-gradient(90deg, #4CAF50, #81c784);
     transition: width 0.5s;
 }
+
+/* ANIMAÇÃO */
+#animacao {
+    font-size: 40px;
+    margin-top: 15px;
+    transition: transform 0.5s ease;
