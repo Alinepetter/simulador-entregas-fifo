@@ -2,36 +2,51 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>Simulador de Entregas</title>
+    <title>Simulador de Entregas FIFO</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <h1>🚚 Simulador de Entregas (FIFO)</h1>
+    <div class="app">
 
-    <div class="container">
-        <button onclick="adicionarPacote()">Adicionar Pacote</button>
-        <button onclick="entregarPacote()">Entregar Pacote</button>
+        <header>
+            <h1>🚚 Simulador de Entregas</h1>
+            <p>Sistema de fila (FIFO) com simulação em tempo real</p>
+        </header>
+
+        <section class="botoes">
+            <button onclick="adicionarPacote()">➕ Adicionar Pacote</button>
+            <button onclick="entregarPacote()">📦 Entregar Pacote</button>
+        </section>
+
+        <section class="painel">
+            <div class="card">
+                <h2>📦 Fila de Entregas</h2>
+                <ul id="fila"></ul>
+            </div>
+
+            <div class="card">
+                <h2>✅ Histórico</h2>
+                <ul id="historico"></ul>
+            </div>
+        </section>
+
+        <section class="status">
+            <h2>📍 Status da Entrega</h2>
+
+            <div id="statusBox">
+                <p id="statusTexto">Aguardando ação...</p>
+                <p id="tempoEstimado"></p>
+
+                <div id="barraContainer">
+                    <div id="barraProgresso"></div>
+                </div>
+            </div>
+
+            <div id="animacao">🚚</div>
+        </section>
+
     </div>
-
-    <h2>📦 Fila de Entregas</h2>
-    <ul id="fila"></ul>
-
-    <h2>✅ Histórico de Entregas</h2>
-    <ul id="historico"></ul>
-
-    <div id="animacao">🚚</div>
-
-    <h2>📍 Status da Entrega</h2>
-
-<div id="statusBox">
-    <p id="statusTexto">Aguardando ação...</p>
-    <p id="tempoEstimado"></p>
-
-    <div id="barraContainer">
-        <div id="barraProgresso"></div>
-    </div>
-</div>
 
     <script src="script.js"></script>
 </body>
