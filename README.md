@@ -16,6 +16,14 @@ Este projeto simula uma transportadora que realiza entregas utilizando o conceit
 - Histórico de entregas
 - Simulação com delay e animação
 
+## ✨ Extras implementados
+
+- Simulação de entrega em tempo real
+- Barra de progresso dinâmica
+- Status da entrega (etapas logísticas)
+- Tempo estimado decrescente
+- Animação sincronizada com o processo
+
 ## 🧠 Conceito aplicado
 Fila (FIFO): o primeiro elemento inserido é o primeiro a ser removido.
 
