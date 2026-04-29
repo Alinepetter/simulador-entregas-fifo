@@ -1,8 +1,12 @@
-// Fila FIFO
+// ===============================
+// 📦 FILA E HISTÓRICO
+// ===============================
 let fila = [];
 let historico = [];
 
-// Atualiza a tela
+// ===============================
+// 🔄 ATUALIZAR FILA NA TELA
+// ===============================
 function atualizarFila() {
     const lista = document.getElementById("fila");
     lista.innerHTML = "";
@@ -14,7 +18,9 @@ function atualizarFila() {
     });
 }
 
-// Atualiza histórico
+// ===============================
+// 📜 ATUALIZAR HISTÓRICO
+// ===============================
 function atualizarHistorico() {
     const lista = document.getElementById("historico");
     lista.innerHTML = "";
@@ -26,7 +32,9 @@ function atualizarHistorico() {
     });
 }
 
-// Consumindo API
+// ===============================
+// 🌐 CONSUMO DA API
+// ===============================
 async function adicionarPacote() {
     try {
         const resposta = await fetch("https://randomuser.me/api/");
@@ -40,7 +48,7 @@ async function adicionarPacote() {
             pais: usuario.location.country
         };
 
-        fila.push(pacote); // FIFO
+        fila.push(pacote); // FIFO (entra no final)
         atualizarFila();
 
     } catch (erro) {
@@ -49,13 +57,29 @@ async function adicionarPacote() {
     }
 }
 
+// ===============================
+// 🚚 ANIMAÇÃO DO CAMINHÃO
+// ===============================
+function animarEntrega() {
+    const caminhao = document.getElementById("animacao");
+
+    caminhao.style.transform = "translateX(300px)";
+
+    setTimeout(() => {
+        caminhao.style.transform = "translateX(0)";
+    }, 500);
+}
+
+// ===============================
+// 📦 ENTREGAR PACOTE (SIMULAÇÃO COMPLETA)
+// ===============================
 function entregarPacote() {
     if (fila.length === 0) {
         alert("Fila vazia!");
         return;
     }
 
-    const pacote = fila.shift();
+    const pacote = fila.shift(); // FIFO (remove o primeiro)
 
     const statusTexto = document.getElementById("statusTexto");
     const tempoTexto = document.getElementById("tempoEstimado");
@@ -63,7 +87,7 @@ function entregarPacote() {
 
     let progresso = 0;
 
-    // Tempo total simulado (5 segundos)
+    // Tempo total (5 segundos)
     let tempoTotal = 5000;
     let tempoRestante = tempoTotal / 1000;
 
@@ -83,12 +107,17 @@ function entregarPacote() {
         progresso += 20;
         etapaAtual++;
 
+        // Atualiza barra
         barra.style.width = progresso + "%";
+
+        // Atualiza status
         statusTexto.textContent = etapas[etapaAtual - 1];
 
+        // Atualiza tempo
         tempoRestante--;
         tempoTexto.textContent = `Tempo estimado: ${tempoRestante}s`;
 
+        // Anima caminhão
         animarEntrega();
 
         if (progresso >= 100) {
@@ -100,20 +129,12 @@ function entregarPacote() {
 
             setTimeout(() => {
                 alert(`Entrega finalizada para ${pacote.nome} (${pacote.cidade}, ${pacote.pais})`);
+
+                // Reset visual
                 statusTexto.textContent = "Aguardando próxima entrega...";
                 tempoTexto.textContent = "";
                 barra.style.width = "0%";
             }, 500);
         }
     }, 1000);
-}
-
-function animarEntrega() {
-    const caminhao = document.getElementById("animacao");
-
-    caminhao.style.transform = "translateX(300px)";
-
-    setTimeout(() => {
-        caminhao.style.transform = "translateX(0)";
-    }, 500);
 }
