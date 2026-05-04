@@ -31,3 +31,6 @@ Fila (FIFO): o primeiro elemento inserido é o primeiro a ser removido.
 Aline Petter Bomfá, 
 Isabelly Marçal de Oliveira,
 Laynne Beatriz Freitas de Morais
+
+Apresentação no Youtube
+https://youtu.be/P7eJAu9oEuU?si=B46CTHMBAscR1j1Y
